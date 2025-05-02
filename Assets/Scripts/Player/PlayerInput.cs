@@ -13,6 +13,7 @@ public class PlayerInput : MonoBehaviour
 
     //Zoom
     [SerializeField] private float zoomSpeed = 1f;
+    [SerializeField] private float zOffsetMultiplier = 0.5f;
     [SerializeField] private float scrollWheelMultiplier = 15f;
     [SerializeField] private float minZoomDistance = 4f;
     [SerializeField] private float maxZoomDistance = 20f;
@@ -62,7 +63,7 @@ public class PlayerInput : MonoBehaviour
 
             if (!Mathf.Approximately(followOffset.y, originalY))
             {
-                followOffset.z += zoomInput * zoomSpeed * Time.deltaTime * 0.5f;
+                followOffset.z += zoomInput * zoomSpeed * Time.deltaTime * zOffsetMultiplier;
             }
 
             cinemachineFollow.FollowOffset = followOffset;
