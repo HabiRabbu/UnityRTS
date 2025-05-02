@@ -4,15 +4,20 @@ using UnityEngine.InputSystem;
 
 public class PlayerInput : MonoBehaviour
 {
+    //Shared
     [SerializeField] private Transform cameraTarget;
     [SerializeField] private CinemachineCamera cinemachineCamera;
+
+    //Panning
     [SerializeField] private float keyboardPanSpeed = 5;
+
+    //Zoom
     [SerializeField] private float zoomSpeed = 1f;
+    [SerializeField] private float scrollWheelMultiplier = 15f;
     [SerializeField] private float minZoomDistance = 4f;
     [SerializeField] private float maxZoomDistance = 20f;
 
     private CinemachineFollow cinemachineFollow;
-    private Vector3 startingFollowOffset;
 
     void Awake()
     {
@@ -20,14 +25,18 @@ public class PlayerInput : MonoBehaviour
         {
             Debug.LogError("Cinemachine Camera did not have CinemachineFollow! Zoom is broken...");
         }
-
-        startingFollowOffset = cinemachineFollow.FollowOffset;
     }
 
     private void Update()
     {
         HandlePan();
         HandleZooming();
+        HandleRotation();
+    }
+
+    private void HandleRotation()
+    {
+
     }
 
     private void HandleZooming()
@@ -35,7 +44,7 @@ public class PlayerInput : MonoBehaviour
 
         float zoomInput = 0f;
 
-        zoomInput += Mouse.current.scroll.ReadValue().y * 15f;
+        zoomInput += Mouse.current.scroll.ReadValue().y * scrollWheelMultiplier;
         if (Keyboard.current.qKey.isPressed)
             zoomInput -= 1f;
         if (Keyboard.current.eKey.isPressed)
