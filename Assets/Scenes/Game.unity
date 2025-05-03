@@ -3879,6 +3879,7 @@ GameObject:
   - component: {fileID: 330585547}
   - component: {fileID: 330585548}
   - component: {fileID: 330585549}
+  - component: {fileID: 330585550}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3953,8 +3954,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.51449585, y: 1.5860124e-15, z: -9.516077e-16, w: 0.8574929}
-  m_LocalPosition: {x: 6.12, y: 15.465, z: -64.86}
+  m_LocalRotation: {x: 0.5144958, y: 0.000000043850484, z: -0.000000026310294, w: 0.8574929}
+  m_LocalPosition: {x: 6.12, y: 15.5, z: -64.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4051,10 +4052,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraTarget: {fileID: 1799656755}
   cinemachineCamera: {fileID: 1376086545}
-  keyboardPanSpeed: 20
-  zoomSpeed: 10
-  minZoomDistance: 4
-  maxZoomDistance: 15
+  cameraConfig: {fileID: 11400000, guid: 2a661db103f586c409aba2842a3917d4, type: 2}
+--- !u!114 &330585550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef51b394ab8f68b45afb1c01700889a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraConfig: {fileID: 11400000, guid: 2a661db103f586c409aba2842a3917d4, type: 2}
+  cameraTarget: {fileID: 1799656755}
+  showGizmo: 1
+  gizmoFillColor: {r: 0, g: 1, b: 1, a: 0.15}
+  gizmoOutlineColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1001 &332197402
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17049,7 +17064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TrackerSettings:
-    BindingMode: 1
+    BindingMode: 3
     PositionDamping: {x: 0, y: 0, z: 0}
     AngularDampingMode: 0
     RotationDamping: {x: 0, y: 0, z: 0}
@@ -17106,8 +17121,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1376086542}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5144958, y: 1.6823382e-15, z: -1.1121508e-15, w: 0.857493}
-  m_LocalPosition: {x: 6.12, y: 15.465, z: -64.86}
+  m_LocalRotation: {x: 0.5144958, y: 0.000000043850477, z: -0.000000026310284, w: 0.8574929}
+  m_LocalPosition: {x: 6.12, y: 15.5, z: -64.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20145,7 +20160,7 @@ GameObject:
   - component: {fileID: 1630118419}
   - component: {fileID: 1630118421}
   - component: {fileID: 1630118423}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: World Collider Bounds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22987,7 +23002,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1799656755}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: CameraTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23003,7 +23018,7 @@ Transform:
   m_GameObject: {fileID: 1799656754}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.12, y: 0.465, z: -56.86}
+  m_LocalPosition: {x: 6.12, y: 0.5, z: -56.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
