@@ -15,7 +15,7 @@ MonoBehaviour:
   <EnableEdgePan>k__BackingField: 1
   <MousePanSpeed>k__BackingField: 15
   <EdgePanSize>k__BackingField: 50
-  <KeyboardPanSpeed>k__BackingField: 15
+  <KeyboardPanSpeed>k__BackingField: 40
   <MinPanX>k__BackingField: -66.55178
   <MaxPanX>k__BackingField: 52.262848
   <MinPanZ>k__BackingField: -83.21648
