@@ -1,3 +1,4 @@
+using Harvey.UnityRTS.Units;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,15 +9,13 @@ namespace Harvey.UnityRTS.Player
     {
         [SerializeField] private Transform cameraTarget;
         [SerializeField] private CinemachineCamera cinemachineCamera;
+        [SerializeField] private new Camera camera;
         [SerializeField] private CameraConfig cameraConfig;
-
-
 
         private CinemachineFollow cinemachineFollow;
         private float currentYaw = 0f;
         private float currentPitch = 20f;
-
-
+        private ISelectable selectedUnit;
 
         void Awake()
         {
@@ -31,6 +30,32 @@ namespace Harvey.UnityRTS.Player
             HandlePan();
             HandleZoom();
             HandleRotation();
+            HandleLeftClick();
+        }
+
+        private void HandleLeftClick()
+        {
+
+            if (camera == null) { return; }
+
+            Ray cameraRay = camera.ScreenPointToRay(Mouse.current.position.ReadValue());
+
+            if (Mouse.current.leftButton.wasReleasedThisFrame)
+            {
+                if (selectedUnit != null)
+                {
+                    selectedUnit.Deselect();
+                    selectedUnit = null;
+                }
+
+                if (Physics.Raycast(cameraRay, out RaycastHit hit, float.MaxValue, LayerMask.GetMask("Default"))
+                && hit.collider.TryGetComponent(out ISelectable selectable))
+                {
+
+                    selectable.Select();
+                    selectedUnit = selectable;
+                }
+            }
         }
 
         private void HandlePan()
